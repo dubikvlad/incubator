@@ -13,20 +13,20 @@ int main()
     int m = 0,
         p = 0,
         peopleCanKill = 0,
-        days = 1;
+        days = 0;
 
     cout << "Enter how much monstrs in Minsk" << endl;
     cin >> m;
-
     cout << "Enter percent in night" << endl;
     cin >> p;
-
     cout << "How many monstrs can people destroy" << endl;
     cin >> peopleCanKill;
 
-    if (m == peopleCanKill || m < peopleCanKill)
+    if(m < 0)
+        cout << "Monsters will never born";
+    if(m == peopleCanKill || m < peopleCanKill)
     {
-        cout << "days" << endl;
+        cout << "peolpe need " << days + 1 << " day(s) to destroy all monsters" << endl;
     }    
     else {
         while (m > 0)
@@ -44,8 +44,8 @@ int main()
     
     if(days == 999){
         cout << "Monsters will win" << endl;
-    }else{
-        cout << "peolpe need " << days << " days to destroy all monsters" << endl;
+    }else if(days != 0){
+        cout << "peolpe need " << days << " day(s) to destroy all monsters" << endl;
     }      
 
     return 0;

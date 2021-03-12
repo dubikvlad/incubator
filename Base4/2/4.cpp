@@ -15,7 +15,8 @@ int main()
 
     cout << "Enter your number to find random ";
     cin >> userNum;    
-    //cout << random << endl;
+    cout << "random:  "<< random << endl;
+	cout << endl << "max rand: " << RAND_MAX << endl << endl;
 
     while(userNum != random){
         if(userNum > random){
