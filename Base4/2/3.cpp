@@ -3,6 +3,7 @@
 */
 
 #include<iostream>
+#include <math.h>
 using namespace std;
 
 int main()
@@ -13,7 +14,7 @@ int main()
     cout << "Enter fractional number: " ;
     cin >> number;
     
-    result = (int)(number * 10) % 10;
+    result = abs((int)(number * 10) % 10);
     cout << result;  
     
     return 0;
