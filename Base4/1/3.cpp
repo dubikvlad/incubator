@@ -15,6 +15,12 @@ int main() {
     cout << "enter binary number:  ";
     cin >> number;
 
+    while(number < 0){
+        cout << "Error! Enter positive number. \n";
+        cout << "enter binary number:  ";
+        cin >> number;
+    }
+
     for(int i = number ; i > 0 ; i /= 10){
         numberLength++;
     }
