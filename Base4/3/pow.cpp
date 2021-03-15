@@ -19,7 +19,8 @@ int main() {
     return 0;
 }
 
-double pow(int x, int n){
+double pow(int x, int n)
+{
     double result = 1;
 
     if(n == 0){
