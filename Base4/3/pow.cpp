@@ -6,7 +6,8 @@ using namespace std;
 
 double pow(int x, int n);
 
-int main() {
+int main() 
+{
     int x, n;
 
     cout << "Enter integer number: ";
