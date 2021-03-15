@@ -48,6 +48,8 @@ int units(int n)
     {   
         int bin = i;
 
+        cout << i << endl;
+
         for(int j = bin ; j > 0 ; j /= 10){
             numberLength++;
         }

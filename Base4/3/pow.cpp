@@ -38,10 +38,12 @@ double pow(int x, int n)
         	else 
 				result = 1 / result;             
     	}	
-
-    cout << "Result = " << result; 
-	}else{
+    
+        cout << "Result = " << result; 
+	}
+    else{
 		cout << "Error!";
+        
 		return -1;
 	}
 }
