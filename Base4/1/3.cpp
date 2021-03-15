@@ -10,12 +10,18 @@ using namespace std;
 int main() {
     int number,
         result = 0,
-        numberLength;
+        numberLength = 0;
     
     cout << "enter binary number:  ";
     cin >> number;
 
-    for(int i = number ; i > 0 ; i/=10){
+    while(number < 0){
+        cout << "Error! Enter positive number. \n";
+        cout << "enter binary number:  ";
+        cin >> number;
+    }
+
+    for(int i = number ; i > 0 ; i /= 10){
         numberLength++;
     }
 
