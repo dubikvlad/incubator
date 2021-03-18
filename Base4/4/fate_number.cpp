@@ -1,31 +1,30 @@
 #include <iostream>
 using namespace std;
 
-void calculeteFateNumber(int);
-int enterNumbers(int);
+void calculeteFateNumber(int day, int month);
+int enterNumbers();
+int enterDay();
+int enterMonth();
 
 int main()
 {   
-    calculeteFateNumber(enterNumbers(int a, int b, int c));
-
-    return 0;
-}
-
-void calculeteFateNumber(int day, int month, int year)
-{
-    cout << day + month + year;
-}
-
-int enterNumbers()
-{   
-    int day, month, year;
+	int day, month, year;
 
     cout << "Enter day: ";
     cin >> day;
     cout << "Enter month: ";
-    cin >> month;
-    cout << "Enter year: ";
-    cin >> year;
+    cin >> month;  
 
-    return (day, month, year);
+
+
+    calculeteFateNumber(day, month);
+
+    return 0;
 }
+
+void calculeteFateNumber(int day, int month)
+{
+    cout << day << month;
+}
+
+
