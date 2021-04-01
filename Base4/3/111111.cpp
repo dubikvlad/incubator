@@ -4,13 +4,14 @@
 #include <cmath>
 using namespace std;
 
-int units(int n);
-int toBinary(int);
+int printResult(int n);
+int convertToBinaryNumber(int);
+int convertToDecNumber(int);
+int printDecNumber(int);
 
 int main() 
 {   
-    int number,
-        binaryNumber;
+    int number;
 
     cout << "Enter positive number: ";
     cin >> number;
@@ -20,13 +21,12 @@ int main()
         cin >> number; 
     }
 
-    toBinary(number);
-    
+    convertToBinaryNumber(number);    
 
     return 0;
 }
 
-int toBinary(int number)
+int convertToBinaryNumber(int number)
 {   
     int binaryNumber;
     for(int i = 0 ; number > 0; i++)
@@ -34,35 +34,43 @@ int toBinary(int number)
         binaryNumber += (number % 2) * pow(10.0 , i);
         number /= 2;
     }
-    units(binaryNumber);
+    printResult(binaryNumber);
 }
 
-int units(int n)
+int printResult(int n)
 {   
-    int result = 0,        
-        numberLength = 0;
-    
-    cout << "The numbers, that have only '1' in binary till your number are: \n";
+    cout << "The numbers, that have only '1' in binary till your number are: \n";       
 
     for(int i = 1; i < n; i = i * 10 + 1)
-    {   
-        int bin = i;
+    {
+        convertToDecNumber(i);  
 
-        cout << i << endl;
-
-        for(int j = bin ; j > 0 ; j /= 10){
-            numberLength++;
-        }
-
-        for(int j = 0; j < numberLength; j++){
-            result += (bin % 10) * pow(2 , j);
-            bin /= 10;
-        }         
-        
-        cout << result << endl; 
-
-        result = 0; 
-        numberLength = 0;                   
+        cout << " this is " << i << " in binary system" << endl;                         
     }
 }
 
+int convertToDecNumber(int bin)
+{
+    int result = 0,        
+        numberLength = 0;  
+
+    for(int j = bin ; j > 0 ; j /= 10)
+    {
+        numberLength++;
+    }
+    for(int j = 0; j < numberLength; j++)
+    {
+        result += (bin % 10) * pow(2 , j);
+        bin /= 10;
+    }         
+        
+    printDecNumber(result);
+
+    result = 0; 
+    numberLength = 0;
+}
+
+int printDecNumber(int number)
+{
+    cout << number;
+}
