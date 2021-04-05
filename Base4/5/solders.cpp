@@ -29,9 +29,7 @@ int main()
     turnLeft(); 
     showLine();
 
-    bool yes = true;     
-
-    while(anyoneSeeEachOther() == yes) {
+    while(anyoneSeeEachOther()) {
         changePosition();
         showLine();
     }
