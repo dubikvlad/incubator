@@ -1,17 +1,20 @@
-//ПРОСВЕТ. Куб состоит из n3 прозрачных и непрозрачных кубиков. Имеется ли хотя бы один просвет?
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-#define N 7
+#define N 5
 
 int arr[N][N][N] = {0}; 
-int countForCompare = 0;
+int countForCompareY = 0;
+int countForCompareX = 0;
+int countForCompareZ = 0;
 int countForResult = 0;
 
+
 void fillSpace();
-void compareY();
-void compareX();
-void compareZ();
+void compareSides();
+void compareY(int i, int j, int k);
+void compareX(int i, int j, int k);
+void compareZ(int i, int j, int k);
 void displayMatrix();
 
 int main()
@@ -21,11 +24,11 @@ int main()
     cout<< "Our cube has " << N << " * "  << N << " * "  << N << " sides " << endl;
 
     fillSpace();
-    compareY();
-    if(countForResult == 0) 
-        compareX(); 
-    if(countForResult == 0) 
-        compareZ();
+    compareSides();
+    
+    if(countForResult != 0)
+        cout << "There are light somewhere" << endl;
+    
     if(countForResult == 0)
         cout << "There is no light" << endl;
         
@@ -59,64 +62,47 @@ void displayMatrix()
     }
 }
 
-void compareY()
+void compareSides()
 {
-    for(int i = 0; i < N; i++) {                     //compare y
+    for(int i = 0; i < N; i++) {                     
         for(int j = 0; j < N; j++) {
             for(int k = 0; k < N; k++) {
-               if(arr[i][j][k] == 0) {
-                   countForCompare++;
-                   if(countForCompare == N){
-                        cout << "There are light somewhere" << endl;
-                        countForResult++;
-                    }   
-               }  
+               compareY(i, j, k);
+               compareX(i, j ,k);
+               compareZ(i, j, k);
             }
-            countForCompare = 0;
+            countForCompareY = 0;
+            countForCompareX = 0;
+            countForCompareZ = 0;
         }
-        if(countForResult != 0)
-            break;
     }
 }
 
-void compareX()
+void compareY(int i, int j, int k)
 {
-    for(int i = 0; i < N; i++) {                     //compare x
-        for(int j = 0; j < N; j++) {
-            for(int k = 0; k < N; k++) { 
-                if(arr[i][k][j] == 0) {
-                    countForCompare++;
-                    if(countForCompare == N){
-                        cout << "There are light somewhere" << endl;
-                        countForResult++;
-                        break;
-                    }                        
-               }  
-            }
-            countForCompare = 0;
-        }
-        if(countForResult != 0)
-            break;
+    if(arr[i][j][k] == 0) {   //compare y
+        countForCompareY++;
+        if(countForCompareY == N){
+            countForResult++;
+        }   
     }
 }
 
-void compareZ()
+void compareX(int i, int j, int k)
 {
-    for(int i = 0; i < N; i++) {                     //compare z
-        for(int j = 0; j < N; j++) {
-            for(int k = 0; k < N; k++) { 
-                if(arr[k][j][i] == 0) {
-                    countForCompare++;
-                    if(countForCompare == N){
-                        cout << "There are light somewhere" << endl;
-                        countForResult++;
-                        break;
-                    }  
-               }  
-            }
-            countForCompare = 0;
-        }
-        if(countForResult != 0)
-            break;
+    if(arr[i][k][j] == 0) {  //compare x
+        countForCompareX++;
+        if(countForCompareX == N){
+            countForResult++;
+        }                        
     }
+}
+void compareZ(int i, int j, int k)
+{
+    if(arr[k][j][i] == 0) {  //compare z
+        countForCompareZ++;
+        if(countForCompareZ == N){
+            countForResult++;
+        }  
+    }    
 }
