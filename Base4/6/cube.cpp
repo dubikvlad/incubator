@@ -1,3 +1,4 @@
+//ПРОСВЕТ. Куб состоит из n3 прозрачных и непрозрачных кубиков. Имеется ли хотя бы один просвет?
 #include <iostream>
 #include <cstdlib>
 using namespace std;
